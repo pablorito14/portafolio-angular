@@ -17,14 +17,16 @@ export class ItemComponent implements OnInit {
               public productoService:ProductosService ) { }
 
   ngOnInit(): void {
+    // this.id = ;
     this.route.params
       .subscribe(parametros => {
-        console.log(parametros['id']);
+        this.id = parametros['id'];
+        // console.log(parametros['id']);
 
         this.productoService.getProducto(parametros['id'])
             .subscribe( (producto:ProductoDescripcion) => {
               // console.log(producto);
-              this.id = parametros['id'];
+              // this.id = parametros['id'];
               // console.log(this.id);
               this.producto = producto;
             } );
